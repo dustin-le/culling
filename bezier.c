@@ -52,6 +52,9 @@ void generateBezierTriangles( Model *model, View *view, Projection *projection )
 
         // TODO: Call cullProjectDumpTriangle() with the proper
         //       arguments for the generated triangles.
+        // ! CHECKPOINT: Basically, the points here haven't been projected yet. Need to project. Seems like it needs to be done in cullProjectDumpTriangle()
+        // ! But currently unsure which project function to use: projectVertex() or projectVertexList()
+        // printf("%lf %lf %lf\n", model->m_patchVertex[here].x, model->m_patchVertex[here].y, model->m_patchVertex[here].z);
         cullProjectDumpTriangle(view, projection, &model->m_patchVertex[here], &model->m_patchVertex[there], &model->m_patchVertex[there+1]);
         cullProjectDumpTriangle(view, projection, &model->m_patchVertex[there+1], &model->m_patchVertex[here+1], &model->m_patchVertex[here]);
       }

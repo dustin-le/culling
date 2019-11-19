@@ -73,6 +73,8 @@ int main( int argc, char *argv[] )
   // Generate the Bézier surface points
   generateBezierPoints( m, v->m_resolution );
 
+  projectVertexList( p, m->m_patchVertex, m->m_numPatchVertices );
+
   // Generate, cull, project, and draw the triangles for
   // the Bézier surfaces.
   generateBezierTriangles( m, v, p );

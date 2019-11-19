@@ -41,8 +41,8 @@ Tasks:
 
   6. Execute these commands to compile and run the hmwk_06.c
      template:
-
-$ ./hmwk_06 Tests/Monkey.svfm Tests/Monkey_setting_01.view 
+$ gcc -o hmwk_06 hmwk_06.c bezier.c line.c model.c projection.c triangle.c vertex.c view.c cull.c -lm
+$ ./hmwk_06 Tests/Monkey.svfm Tests/Monkey_setting_01a.view 
 #- Model parameters --------------------
 # Vertex count       :   507
 # Face count         :   967

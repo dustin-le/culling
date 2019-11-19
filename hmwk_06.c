@@ -83,6 +83,12 @@ int main( int argc, char *argv[] )
 
   // TODO: Call cullProjectDumpTriangle() with the proper
   //       arguments for each of the face triangles.
+  // Each model has v vertics and f faces. The faces contain the index of each vertex making up the face triangle.
+
+  for (int i = 0; i < m->m_numFaces; i++)
+  {
+    cullProjectDumpTriangle(v, p, &m->m_vertex[m->m_face[i].v1], &m->m_vertex[m->m_face[i].v2], &m->m_vertex[m->m_face[i].v3]);
+  }
 
   //--------------------------------------
   // All done!  Free up the allocated strucures.

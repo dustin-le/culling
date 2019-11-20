@@ -80,9 +80,9 @@ void projectVertex( Projection *p, Vertex *v1, Vertex *v2 )
     y = y / ( 1 - z/p->m_cameraDistance );
   }
 
-  v2->x = x;
-  v2->y = y;
-  v2->z = 0;
+  v2->x = p->m_sx*x + p->m_ax;
+  v2->y = p->m_sy*y + p->m_ay;
+  v2->z = 0.0;
 }
 
 void projectVertexList( Projection *p, Vertex *v, int numVertices )

@@ -18,7 +18,7 @@ void cullProjectDumpTriangle( View *view, Projection *projection, Vertex *v1, Ve
   // TODO: If culling is active and the triangle should be culled,
   //       do nothing.  Otherwise project the vertices and dump
   //       the triangl.
-  Vertex temp;
+  Vertex temp, tempv1, tempv2, tempv3;
   temp.x = 0;
   temp.y = 0;
   temp.z = view->m_cameraDistance;
@@ -31,10 +31,10 @@ void cullProjectDumpTriangle( View *view, Projection *projection, Vertex *v1, Ve
     }  
   }
 
-  projectVertex(projection, v1, v2);
-  projectVertex(projection, v2, v3);
-  projectVertex(projection, v3, v1);
-  dumpTriangle(v1, v2, v3);
+  projectVertex(projection, v1, &tempv1);
+  projectVertex(projection, v2, &tempv2);
+  projectVertex(projection, v3, &tempv3);
+  dumpTriangle(&tempv1, &tempv2, &tempv3);
 }
 
 //----------------------------------------------------------

@@ -17,12 +17,21 @@ int cull( Vertex *v1, Vertex *v2, Vertex *v3, Vertex *cameraPosition )
   //       vectors.  Return an indication of whether this triangle
   //       should be culled.
 
-  Vertex toTriangle, normal;
+  Vertex toTriangle, normal, a, b;
+
+  a.x = v1->x - v2->x;
+  a.y = v1->y - v2->y;
+  a.z = v1->z - v2->z;
+
+  b.x = v1->x - v3->x;
+  b.y = v1->y - v3->y;
+  b.z = v1->z - v3->z;
+
 
   // To calculate the normal vector, perform the cross product of two vectors.
-  normal.x = v1->y * v2->z - v1->z * v2->y;
-  normal.y = v1->z * v2->x - v1->x * v2->z;
-  normal.z = v1->x * v2->y - v1->y * v2->x;
+  normal.x = a.y * b.z - a.z * b.y;
+  normal.y = a.z * b.x - a.x * b.z;
+  normal.z = a.x * b.y - a.y * b.x;
 
   if (cameraPosition->z == 0)
   {

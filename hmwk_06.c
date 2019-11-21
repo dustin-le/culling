@@ -73,9 +73,6 @@ int main( int argc, char *argv[] )
   // Generate the Bézier surface points
   generateBezierPoints( m, v->m_resolution );
 
-  // ! MISSING PROJECTION
-  // projectVertexList( p, m->m_patchVertex, m->m_numPatchVertices );
-
   // Generate, cull, project, and draw the triangles for
   // the Bézier surfaces.
   generateBezierTriangles( m, v, p );
@@ -83,8 +80,6 @@ int main( int argc, char *argv[] )
   //--------------------------------------
   // Generate, cull, project, and draw each triangle (in clipped
   // form if necesssary).
-  // ! MISSING PROJECTION
-  // projectVertexList( p, m->m_vertex, m->m_numVertices );
 
   // TODO: Call cullProjectDumpTriangle() with the proper
   //       arguments for each of the face triangles.

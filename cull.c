@@ -42,14 +42,14 @@ int cull( Vertex *v1, Vertex *v2, Vertex *v3, Vertex *cameraPosition )
   toTriangle.y = v1->y - cameraPosition->y;
   toTriangle.z = v1->z - cameraPosition->z;
 
-  // > 0 = facing us, so don't cull it.
-  if ( (normal.x * toTriangle.x + normal.y * toTriangle.y + normal.z * toTriangle.z) > 0)
+  // < 0 = not facing us, so cull it.
+  if ( (normal.x * toTriangle.x + normal.y * toTriangle.y + normal.z * toTriangle.z) < 0)
   {
-    return 0;
+    return 1;
   }
   else
   {
-    return 1;
+    return 0;
   }
   
 }
